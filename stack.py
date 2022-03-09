@@ -10,7 +10,7 @@ class Stack(Structure):
         self._size = 0
 
     def top(self):
-        if self.top:
+        if self._top:
             return self._top
         else:
             return "None"
