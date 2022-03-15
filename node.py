@@ -28,3 +28,10 @@ class DoubleLinkedListNode(ListNode):
     def __init__(self, data, next=None, prev=None):
         super().__init__(data, next)
         self.prev = prev
+
+class BstNode(Node):
+
+    def __init__(self, data, left=None, right=None):
+        super().__init__(data)
+        self.left = left
+        self.right = right
