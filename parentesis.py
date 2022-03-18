@@ -12,18 +12,17 @@ def if_its_correct(arr):
             else:
                 element = my_stack.top()
                 if element == '(':
-                    if parentesis  == ')':
+                    if parentesis == ')':
                         my_stack.pop()
                     else:
                         return False
-                elif element  == '[':
-                    if parentesis  == ']':
+                elif element == '[':
+                    if parentesis == ']':
                         my_stack.pop()
                     else:
                         return False
-
-                elif element  == '{':
-                    if parentesis  == '}':
+                elif element == '{':
+                    if parentesis == '}':
                         my_stack.pop()
                     else:
                         return False
