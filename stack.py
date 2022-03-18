@@ -11,7 +11,7 @@ class Stack(Structure):
 
     def top(self):
         if self._top:
-            return self._top
+            return self._top.data
         else:
             return "None"
 
