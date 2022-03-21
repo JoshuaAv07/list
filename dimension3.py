@@ -1,10 +1,11 @@
 class QueueNode():
+    #A node for a queue structure
     def __init__(self, data, next=None):
         self.data = data
         self.next = next
 
 class Structure:
-    
+    #Standard Sturcture for data structures
     def __init__(self):
         self._front = None
         self._tail = None
@@ -45,10 +46,11 @@ class Structure:
             yield data
 
 class Queue(Structure):
-
+    
     def __init__(self):
         super().__init__()
-
+        
+    #Inserts a new element at the end fo the queue
     def push_back(self, data):
         node = QueueNode(data)
 
@@ -62,6 +64,7 @@ class Queue(Structure):
         self._size += 1
 
     def pop_front(self):
+        #Removes the first element of the queue
         current = self._front
         if current.next == None:
             self._front = None
@@ -84,40 +87,46 @@ class Queue(Structure):
         return False
 
 if __name__ == '__main__':
-    my_queue = Queue()
-    n = int(input())
+    my_queue = Queue() #calls the class Queue() to work with the functions
+    n = int(input()) #establich the lenght of the cicle
     
-    for _ in range (0,n):
-        op = int(input())
-        if op == 1:
-            dim = input() 
-            if my_queue.empty() == True:
-                my_queue.push_back(dim)
-            else:
-                if my_queue.search(dim):
-                    print("LA DIMENSION YA A SIDO AGREGADA")
+    for _ in range (0,n): #cicle according to n
+        op = int(input()) #enters the instruction
+        if op == 1: 
+            dim = input() #enters a new dimension
+            if my_queue.empty() == True: #if the queue is empty (or the new dimension does not exist)
+                my_queue.push_back(dim) #it enters a new data to the queue
+            else: 
+                if my_queue.search(dim):#if not search, it and finds that 
+                    print("LA DIMENSION YA A SIDO AGREGADA") #alert for an existant dimension
                 else:
-                    my_queue.push_back(dim)
+                    my_queue.push_back(dim) #it enters a new data to the queue
         elif op == 2:
+            #if it is empty returns -1
             if my_queue.empty() == True:
                 print("-1")
             else: 
-                print(f"VIAJANDO A {my_queue.front()}")
-                my_queue.pop_front()
+                print(f"VIAJANDO A {my_queue.front()}") #shows the first elements
+                my_queue.pop_front() #deletes the first element
 
         elif op == 3:
-            if my_queue.empty() == True:
+            #if it is empty returns -1
+            if my_queue.empty() == True: 
                 print("-1")
             else: 
-                print(my_queue.front())
+                print(my_queue.front()) #prints the first element
+
         elif op == 4:
+            #if it is empty returns -1
             if my_queue.empty() == True:
                 print("-1")
             else: 
-                print(my_queue.back())
+                print(my_queue.back()) #prints the first element
+
         elif op == 5:
+            #if it is empty returns -1
             if my_queue.empty() == True:
                 print("-1")
             else:
-                for name in my_queue.iter():
+                for name in my_queue.iter(): #displays the list of the existent elements in the queue
                     print(name)
