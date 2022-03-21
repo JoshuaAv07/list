@@ -1,12 +1,10 @@
 class QueueNode():
-    '''A node for a queue structure'''
     def __init__(self, data, next=None):
         self.data = data
         self.next = next
 
 class Structure:
-    ''' Standard Sturcture for data structures '''
-
+    
     def __init__(self):
         self._front = None
         self._tail = None
@@ -52,20 +50,18 @@ class Queue(Structure):
         super().__init__()
 
     def push_back(self, data):
-        '''Inserts a new element at the endo fo the queue'''
         node = QueueNode(data)
 
         if self._tail == None:
             self._front = node
             self._tail = node
-        
         else:
             self._tail.next = node
-            self._tail = node    
-        
+            self._tail = node
+
         self._size += 1
 
-    def pop(self):
+    def pop_front(self):
         current = self._front
         if current.next == None:
             self._front = None
@@ -73,6 +69,7 @@ class Queue(Structure):
         else:
             self._front = current.next
             current.next = None
+
         self._size -= 1
 
     def search(self, data):
@@ -83,47 +80,48 @@ class Queue(Structure):
                 return current
             else:
                 current = current.next
+
         return False
 
-def dimension():
-    n = int(input())
+if __name__ == '__main__':
     my_queue = Queue()
+    n = int(input())
     
-    for _ in range (0, n):
+    while n != 0:
         op = int(input())
-
         if op == 1:
             dim = input() 
-            on = 0
-            for d in my_queue.iter():
-                if dim == d:
-                    print("LA DIMENSION YA A SIDO AGREGADA")
-                    on += 1
-                    break
-            if on == 0:
-                print(my_queue.push_back(dim))
-        elif op == 2:
-            if my_queue.empty():
-                print("-1")
+            if my_queue.empty() == True:
+                my_queue.push_back(dim)
             else:
-                my_queue.pop() 
+                if my_queue.search(dim):
+                    print("LA DIMENSION YA A SIDO AGREGADA")
+                else:
+                    my_queue.push_back(dim)
+            n-=1
+        elif op == 2:
+            if my_queue.empty() == True:
+                print("-1")
+            else: 
                 print(f"VIAJANDO A {my_queue.front()}")
+                my_queue.pop_front()
+            n-=1
         elif op == 3:
-            if my_queue.empty():
+            if my_queue.empty() == True:
                 print("-1")
             else: 
                 print(my_queue.front())
+            n-=1
         elif op == 4:
-            if my_queue.empty():
+            if my_queue.empty() == True:
                 print("-1")
             else: 
                 print(my_queue.back())
+            n-=1
         elif op == 5:
-            if my_queue.empty():
+            if my_queue.empty() == True:
                 print("-1")
             else:
-                for dim in my_queue.iter():
-                    print(dim)
-    
-if __name__ == '__main__':
-   dimension() 
+                for name in my_queue.iter():
+                    print(name)
+            n-=1
