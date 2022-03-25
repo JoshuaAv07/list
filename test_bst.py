@@ -17,7 +17,7 @@ if __name__ == '__main__':
     print(bst.insert(10))
     print(" DATA SIZE ".center(50,'-'))
     print(bst.size())
-
+    
     print(" INORDER ".center(50,'-'))
     bst.inorder(bst.root())
     print()
@@ -27,3 +27,9 @@ if __name__ == '__main__':
     print(" POSTORDER ".center(50,'-'))
     bst.postorder(bst.root())
     print()
+
+    '''bst.delete(bst.root(), 10)
+
+    print()
+    print(" INORDER ".center(50,'-'))
+    bst.inorder(bst.root())'''
