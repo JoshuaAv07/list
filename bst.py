@@ -70,6 +70,20 @@ class BinarySearchTree:
         while current:
             current = current.right
         return current
+    
+    def search(self, current, data):
+    
+        if current is None or current.data == data:
+            return current
+
+        if data < current.data:
+            current = self.search(current.left, data)
+            return current
+        elif data > current.data:
+            current = self.search(current.right, data)
+            return current
+
+        return current
 
     def delete(self, current, data):
 
